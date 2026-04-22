@@ -1,4 +1,571 @@
-body{
-    font-family:Arial;
-    padding:40px;
+/* =========================================
+   NETFLIX-STYLE PORTFOLIO — styles.css
+   ========================================= */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --red:    #e50914;
+  --bg:     #141414;
+  --bg2:    #1f1f1f;
+  --bg3:    #2a2a2a;
+  --white:  #ffffff;
+  --gray:   #a3a3a3;
+  --light:  #e5e5e5;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body:    'Barlow', sans-serif;
 }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg);
+  color: var(--light);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ---- SCROLLBAR ---- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--red); border-radius: 3px; }
+
+/* =================== NAVBAR =================== */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, transparent 100%);
+  transition: background 0.3s;
+}
+
+.navbar.scrolled {
+  background: rgba(20,20,20,0.97);
+  backdrop-filter: blur(8px);
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--red);
+  letter-spacing: 2px;
+}
+
+.dot { color: var(--white); }
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--light);
+  font-weight: 400;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--white); }
+
+.nav-cta {
+  background: var(--red) !important;
+  color: var(--white) !important;
+  padding: 8px 20px;
+  border-radius: 3px;
+  font-weight: 600 !important;
+  transition: background 0.2s, transform 0.2s !important;
+}
+
+.nav-cta:hover {
+  background: #f40612 !important;
+  transform: scale(1.04);
+}
+
+/* =================== HERO =================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 60px;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 40%, #3d0000 0%, transparent 60%),
+              linear-gradient(180deg, #000 0%, #141414 100%);
+}
+
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(20,20,20,1) 40%, transparent 100%);
+}
+
+.hero-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 200px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  animation: fadeUp 1s ease both;
+}
+
+.hero-eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 12px;
+  font-weight: 600;
+  animation: fadeUp 0.8s ease 0.1s both;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 14vw, 13rem);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  margin-bottom: 20px;
+  animation: fadeUp 0.8s ease 0.2s both;
+}
+
+.hero-title-outline {
+  -webkit-text-stroke: 2px var(--white);
+  color: transparent;
+}
+
+.hero-tagline {
+  font-size: 1.2rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--gray);
+  margin-bottom: 36px;
+  line-height: 1.5;
+  animation: fadeUp 0.8s ease 0.35s both;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  animation: fadeUp 0.8s ease 0.5s both;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  color: #000;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 14px 28px;
+  border-radius: 4px;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btn-primary:hover { background: rgba(255,255,255,0.85); transform: scale(1.03); }
+.btn-primary.big { font-size: 1.1rem; padding: 16px 40px; }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(109,109,110,0.7);
+  color: var(--white);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 14px 28px;
+  border-radius: 4px;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: background 0.2s;
+}
+
+.btn-ghost:hover { background: rgba(109,109,110,0.5); }
+
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 40px;
+  right: 60px;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gray);
+  writing-mode: vertical-rl;
+  animation: pulse 2s infinite;
+}
+
+/* =================== ROWS =================== */
+.row-section {
+  padding: 60px 60px 20px;
+}
+
+.row-label {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+  color: var(--light);
+  margin-bottom: 24px;
+}
+
+/* Featured Cards */
+.card-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.card {
+  background: var(--bg2);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.04) translateY(-4px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.7), 0 0 0 2px var(--card-color);
+  z-index: 10;
+}
+
+.card-img {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  position: relative;
+}
+
+.card-info {
+  padding: 20px;
+}
+
+.card-info h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  letter-spacing: 0.05em;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.card-tags span {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--gray);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 2px;
+}
+
+.card-info p {
+  font-size: 0.88rem;
+  color: var(--gray);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.card-link {
+  color: var(--red);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+
+.card-link:hover { color: #ff1a25; }
+
+/* =================== SKILLS ROW =================== */
+.skill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skill-pill {
+  background: var(--bg3);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--light);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  padding: 10px 20px;
+  border-radius: 30px;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.skill-pill:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.25);
+}
+
+.skill-pill.accent {
+  border-color: var(--red);
+  color: var(--white);
+}
+
+/* =================== MINI CARDS =================== */
+.mini-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.mini-card {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.mini-card:hover { transform: scale(1.06); }
+
+.mini-thumb {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.mini-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--light);
+  margin-bottom: 2px;
+}
+
+.mini-sub {
+  font-size: 0.78rem;
+  color: var(--gray);
+}
+
+/* =================== BILLBOARD =================== */
+.billboard {
+  position: relative;
+  padding: 80px 60px;
+  margin: 40px 0;
+  overflow: hidden;
+}
+
+.billboard-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.billboard-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  max-width: 1100px;
+}
+
+.billboard-text { flex: 1; }
+
+.bill-eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.bill-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1;
+  color: var(--white);
+  margin-bottom: 24px;
+  letter-spacing: 0.03em;
+}
+
+.bill-body {
+  font-size: 0.95rem;
+  color: var(--gray);
+  max-width: 520px;
+  margin-bottom: 16px;
+  font-weight: 300;
+}
+
+.bill-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 32px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  color: var(--red);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-top: 4px;
+}
+
+.billboard-avatar {
+  flex-shrink: 0;
+}
+
+.avatar-ring {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 3px solid var(--red);
+  padding: 6px;
+  box-shadow: 0 0 40px rgba(229,9,20,0.3);
+}
+
+.avatar-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2a0000, #4a0000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 4rem;
+  color: var(--red);
+  letter-spacing: 4px;
+}
+
+/* =================== CONTACT =================== */
+.contact-section {
+  text-align: center;
+  padding: 80px 60px;
+  background: linear-gradient(to bottom, var(--bg), #0a0a0a);
+}
+
+.contact-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: var(--white);
+  margin-bottom: 12px;
+  letter-spacing: 0.04em;
+}
+
+.contact-sub {
+  color: var(--gray);
+  font-size: 1rem;
+  font-style: italic;
+  margin-bottom: 36px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 32px;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: var(--gray);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.social-links a:hover { color: var(--white); }
+
+/* =================== FOOTER =================== */
+.footer {
+  padding: 30px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--red);
+  letter-spacing: 2px;
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.2);
+}
+
+/* =================== ANIMATIONS =================== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50%       { opacity: 1; }
+}
+
+/* =================== RESPONSIVE =================== */
+@media (max-width: 768px) {
+  .navbar { padding: 16px 24px; }
+  .nav-links { gap: 16px; }
+  .hero { padding: 0 24px; }
+  .hero-title { font-size: 5rem; }
+  .row-section { padding: 40px 24px 16px; }
+  .card-row { grid-template-columns: 1fr 1fr; }
+  .mini-row { grid-template-columns: repeat(3, 1fr); }
+  .billboard { padding: 60px 24px; }
+  .billboard-content { flex-direction: column-reverse; gap: 32px; }
+  .avatar-ring { width: 140px; height: 140px; }
+  .contact-section { padding: 60px 24px; }
+  .footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
+  .bill-stats { gap: 24px; }
+}
+
+/* Navbar scroll effect via JS */

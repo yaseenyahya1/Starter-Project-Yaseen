@@ -1,13 +1,211 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Starter Site</title>
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alex Rivera — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<h1>Welcome</h1>
-<p>Edit this project into your own website.</p>
+<!-- NAV -->
+<nav class="navbar">
+  <div class="nav-logo">AR<span class="dot">.</span></div>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+  </ul>
+</nav>
 
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-gradient"></div>
+    <div class="hero-noise"></div>
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Full-Stack Developer & UI Designer</p>
+    <h1 class="hero-title">ALEX<br><span class="hero-title-outline">RIVERA</span></h1>
+    <p class="hero-tagline">I build experiences that<br>people actually remember.</p>
+    <div class="hero-actions">
+      <a href="#work" class="btn-primary">▶ View Work</a>
+      <a href="#about" class="btn-ghost">ⓘ More Info</a>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">SCROLL</div>
+</section>
+
+<!-- FEATURED ROW -->
+<section class="row-section" id="work">
+  <h2 class="row-label">Featured Projects</h2>
+  <div class="card-row">
+
+    <div class="card featured-card" style="--card-color:#e50914">
+      <div class="card-img" style="background:linear-gradient(135deg,#1a0a0a 0%,#e50914 100%)">
+        <span class="card-icon">🛒</span>
+      </div>
+      <div class="card-info">
+        <h3>NovaMart</h3>
+        <div class="card-tags"><span>React</span><span>Node.js</span><span>MongoDB</span></div>
+        <p>Full-stack e-commerce platform with real-time inventory and AI-powered recommendations.</p>
+        <a href="#" class="card-link">Watch Trailer ↗</a>
+      </div>
+    </div>
+
+    <div class="card featured-card" style="--card-color:#f5a623">
+      <div class="card-img" style="background:linear-gradient(135deg,#0d0a00 0%,#f5a623 100%)">
+        <span class="card-icon">📊</span>
+      </div>
+      <div class="card-info">
+        <h3>Pulse Analytics</h3>
+        <div class="card-tags"><span>Vue 3</span><span>D3.js</span><span>Python</span></div>
+        <p>Real-time business intelligence dashboard with predictive trend analysis.</p>
+        <a href="#" class="card-link">Watch Trailer ↗</a>
+      </div>
+    </div>
+
+    <div class="card featured-card" style="--card-color:#2ecc71">
+      <div class="card-img" style="background:linear-gradient(135deg,#001a0a 0%,#2ecc71 100%)">
+        <span class="card-icon">🌿</span>
+      </div>
+      <div class="card-info">
+        <h3>Verdant</h3>
+        <div class="card-tags"><span>Next.js</span><span>Prisma</span><span>Tailwind</span></div>
+        <p>Sustainable lifestyle app connecting eco-conscious users with local green businesses.</p>
+        <a href="#" class="card-link">Watch Trailer ↗</a>
+      </div>
+    </div>
+
+    <div class="card featured-card" style="--card-color:#9b59b6">
+      <div class="card-img" style="background:linear-gradient(135deg,#0a0014 0%,#9b59b6 100%)">
+        <span class="card-icon">🎵</span>
+      </div>
+      <div class="card-info">
+        <h3>Wavefront</h3>
+        <div class="card-tags"><span>React Native</span><span>Web Audio API</span></div>
+        <p>Cross-platform music streaming app with collaborative playlist creation.</p>
+        <a href="#" class="card-link">Watch Trailer ↗</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS ROW -->
+<section class="row-section" id="skills">
+  <h2 class="row-label">My Stack</h2>
+  <div class="skill-row">
+    <div class="skill-pill">JavaScript</div>
+    <div class="skill-pill">TypeScript</div>
+    <div class="skill-pill accent">React</div>
+    <div class="skill-pill">Vue.js</div>
+    <div class="skill-pill accent">Node.js</div>
+    <div class="skill-pill">Python</div>
+    <div class="skill-pill">PostgreSQL</div>
+    <div class="skill-pill accent">MongoDB</div>
+    <div class="skill-pill">Docker</div>
+    <div class="skill-pill">AWS</div>
+    <div class="skill-pill">Figma</div>
+    <div class="skill-pill">GraphQL</div>
+  </div>
+</section>
+
+<!-- MINI PROJECTS ROW -->
+<section class="row-section">
+  <h2 class="row-label">Also Watched</h2>
+  <div class="mini-row">
+
+    <div class="mini-card">
+      <div class="mini-thumb" style="background:linear-gradient(135deg,#0a0a1a,#3498db)">💬</div>
+      <p class="mini-title">ChatNest</p>
+      <p class="mini-sub">Real-time chat app</p>
+    </div>
+
+    <div class="mini-card">
+      <div class="mini-thumb" style="background:linear-gradient(135deg,#1a0a00,#e67e22)">📅</div>
+      <p class="mini-title">DayForge</p>
+      <p class="mini-sub">Productivity planner</p>
+    </div>
+
+    <div class="mini-card">
+      <div class="mini-thumb" style="background:linear-gradient(135deg,#001a1a,#1abc9c)">🔐</div>
+      <p class="mini-title">VaultKey</p>
+      <p class="mini-sub">Password manager</p>
+    </div>
+
+    <div class="mini-card">
+      <div class="mini-thumb" style="background:linear-gradient(135deg,#1a0000,#c0392b)">🍽️</div>
+      <p class="mini-title">ForkIt</p>
+      <p class="mini-sub">Recipe discovery</p>
+    </div>
+
+    <div class="mini-card">
+      <div class="mini-thumb" style="background:linear-gradient(135deg,#0a0a00,#f1c40f)">⚡</div>
+      <p class="mini-title">GridOS</p>
+      <p class="mini-sub">Portfolio dashboard</p>
+    </div>
+
+    <div class="mini-card">
+      <div class="mini-thumb" style="background:linear-gradient(135deg,#001a00,#27ae60)">🗺️</div>
+      <p class="mini-title">Roamly</p>
+      <p class="mini-sub">Travel planner</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT BILLBOARD -->
+<section class="billboard" id="about">
+  <div class="billboard-bg" style="background:linear-gradient(135deg,#0a0a0a 30%,#1a0a00 100%)"></div>
+  <div class="billboard-content">
+    <div class="billboard-text">
+      <p class="bill-eyebrow">About the Creator</p>
+      <h2 class="bill-title">Crafting digital<br>worlds since 2017.</h2>
+      <p class="bill-body">Based in Kuala Lumpur, I'm a full-stack developer with a passion for building products that are fast, accessible, and genuinely beautiful. I obsess over the details — the micro-animations, the loading states, the edge cases nobody thinks about until they matter.</p>
+      <p class="bill-body">When I'm not pushing pixels, I'm hiking jungle trails or losing hours to indie games.</p>
+      <div class="bill-stats">
+        <div class="stat"><span class="stat-num">7+</span><span class="stat-label">Years Exp.</span></div>
+        <div class="stat"><span class="stat-num">40+</span><span class="stat-label">Projects</span></div>
+        <div class="stat"><span class="stat-num">15+</span><span class="stat-label">Clients</span></div>
+      </div>
+    </div>
+    <div class="billboard-avatar">
+      <div class="avatar-ring">
+        <div class="avatar-inner">AR</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <h2 class="contact-title">Ready to start your next project?</h2>
+  <p class="contact-sub">Let's make something worth watching.</p>
+  <a href="mailto:alex@example.com" class="btn-primary big">Get In Touch</a>
+  <div class="social-links">
+    <a href="#">GitHub</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">Dribbble</a>
+    <a href="#">Twitter</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">AR<span class="dot">.</span></div>
+  <p class="footer-copy">© 2025 Alex Rivera. All rights reserved.</p>
+</footer>
+
+<script>
+  // Navbar darkens on scroll
+  const nav = document.querySelector('.navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+</script>
 </body>
 </html>
